@@ -74,9 +74,13 @@ As you have seen from the exercise slides or recording, we will be exploring dev
 1. The grade of the assignment consist of an average of three tests. A given test follows these operations:
     
     1.1 `POST` of a given set of books
+
     1.2 `GET` of all books
+
     1.3 `UPDATE` of a given set of books
+
     1.4 `GET` of all books
+
     1.5 `DELETE` of a given set of books
 
 2. Two `GET` operations to fetch the HTML code for the *Authors* and *Years* view
