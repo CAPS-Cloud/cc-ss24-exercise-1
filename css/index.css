@@ -1,0 +1,198 @@
+ * {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+
+ .htmx-indicator {
+   opacity: 0;
+   transition: opacity 500ms ease-in;
+ }
+
+ .htmx-request .htmx-indicator {
+   opacity: 1
+ }
+
+ .htmx-request.htmx-indicator {
+   opacity: 1
+ }
+
+ .contact.htmx-swapping {
+   opacity: 0;
+   transition: opacity 500ms ease-in;
+ }
+
+ .d-header {
+   font-family: "Inconsolata";
+   text-align: center;
+   font-size: 30pt;
+ }
+
+ .d-header>* {
+   margin-block-start: 0.5rem;
+   margin-block-end: 0.9rem;
+ }
+
+ .main {
+   font-family: "Inconsolata";
+   display: grid;
+   text-align: center;
+   gap: 10px;
+
+
+ }
+
+ .small-screen {
+   grid-template-columns: repeat(5, minmax(0, 1fr));
+ }
+
+ @media (max-width: 500px) {
+   .small-screen {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+ }
+
+ @media (max-width: 1000px) {
+   .small-screen {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+   }
+ }
+
+ .p-pointer {
+   cursor: pointer;
+   border: 1.5pt solid #3070b3;
+   border-radius: 4pt;
+
+ }
+
+ .p-pointer:hover {
+   background-color: #e3eefa;
+ }
+
+ .page-content {
+   padding: 20px;
+   margin: 8px;
+ }
+
+ .search-bar {
+   width: 100%;
+   display: inline-block;
+   margin-bottom: 1em;
+
+   .search-bar__input {
+     width: 100%;
+     border-radius: inherit;
+
+     border-color: #e3eefa;
+     border: 2px solid #e3eefa;
+   }
+
+
+ }
+
+ table {
+   font-family: "Inconsolata";
+   border-collapse: separate;
+   border-radius: 6pt;
+   width: 100%;
+   border: 1px solid #3070b3;
+ }
+
+ td,
+ th {
+   text-align: left;
+   padding: 8px;
+ }
+
+ td:first-child,
+ th:first-child {
+   border-left: none;
+ }
+
+ th:nth-child(4),
+ td:nth-child(4) {
+   text-align: center;
+ }
+
+ tr:nth-child(odd) {
+   background-color: #e3eefa;
+ }
+
+ footer {
+   font-family: "Inconsolata";
+   text-align: center;
+   margin-top: auto;
+   margin-bottom: 8px;
+   width: 100%;
+
+ }
+
+ html {
+   height: 100%;
+ }
+
+ body {
+   height: 100%;
+   display: flex;
+   flex-grow: 1;
+   flex: 1;
+   flex-direction: column;
+ }
+
+ .form_wrap {
+   height: 300px;
+   width: 500px;
+   background: white;
+   margin: 50px auto;
+   padding: 125px 0px 0px 100px;
+   outline: 5px solid rgba(0, 0, 0, 0.1);
+   position: relative;
+ }
+
+ input[type="text"] {
+   border: 2px solid #afbdcf;
+   border-radius: 5px;
+   height: 47px;
+   width: 100%;
+   color: #000000;
+   font-size: 14px;
+   padding-left: 20px;
+   box-shadow: none;
+ }
+
+ /* Label style after Input feild is in focus. Can also use input:focus ~ label to select sibling. */
+
+ input[type="text"]:focus+label,
+ input[type="text"]:valid+label {
+   font-size: 12px;
+   color: #afbdcf;
+   top: -5px;
+   left: 10px;
+   background: #ffffff;
+   padding: 0px 5px 0px 5px;
+ }
+
+ .input_wrap {
+   width: 100%;
+   height: auto;
+   position: relative;
+ }
+
+ .input_wrap label {
+   font-family: arial;
+   font-size: 16px;
+   color: #afbdcf;
+   padding: 14px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transition: 0.2s ease all;
+   -moz-transition: 0.2s ease all;
+   -webkit-transition: 0.2s ease all;
+   pointer-events: none;
+
+ }
+
+ input[type="text"]:focus {
+   outline: none;
+ }
