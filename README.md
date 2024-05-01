@@ -93,7 +93,7 @@ Once downloaded and installed, under the exercise folder, run the following comm
 
 > go mod tidy // it will automatically download all dependencies specified in go.mod and go.sum
 
-> go run main.go // it will launch the server and let you access it via localhost:3030
+> go run cmd/main.go // it will launch the server and let you access it via localhost:3030
 
 To build your binary, you can perform the following command:
 
