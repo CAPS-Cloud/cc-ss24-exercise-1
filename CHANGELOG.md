@@ -1,3 +1,10 @@
+29-April-2025
+=============
+1. Update documentation in main.go
+2. Update the README, clarify workflow
+3. Remove unnecessary information
+4. Update the JSON structure
+
 30-April-2024
 =============
 

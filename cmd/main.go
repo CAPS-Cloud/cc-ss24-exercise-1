@@ -20,13 +20,15 @@ import (
 
 // Defines a "model" that we can use to communicate with the
 // frontend or the database
+// More on these "tags" like `bson:"_id,omitempty"`: https://go.dev/wiki/Well-known-struct-tags
 type BookStore struct {
-	ID         primitive.ObjectID `bson:"_id,omitempty"`
+	MongoID    primitive.ObjectID `bson:"_id,omitempty"`
+	ID         string
 	BookName   string
 	BookAuthor string
 	BookISBN   string
-	BookPages  int
-	BookYear   int
+	BookPages  string
+	BookYear   string
 }
 
 // Wraps the "Template" struct to associate a necessary method
@@ -93,25 +95,28 @@ func prepareDatabase(client *mongo.Client, dbName string, collecName string) (*m
 func prepareData(client *mongo.Client, coll *mongo.Collection) {
 	startData := []BookStore{
 		{
+			ID:         "example1",
 			BookName:   "The Vortex",
 			BookAuthor: "José Eustasio Rivera",
 			BookISBN:   "958-30-0804-4",
-			BookPages:  292,
-			BookYear:   1924,
+			BookPages:  "292",
+			BookYear:   "1924",
 		},
 		{
+			ID:         "example2",
 			BookName:   "Frankenstein",
 			BookAuthor: "Mary Shelley",
 			BookISBN:   "978-3-649-64609-9",
-			BookPages:  280,
-			BookYear:   1818,
+			BookPages:  "280",
+			BookYear:   "1818",
 		},
 		{
+			ID:         "example3",
 			BookName:   "The Black Cat",
 			BookAuthor: "Edgar Allan Poe",
 			BookISBN:   "978-3-99168-238-7",
-			BookPages:  280,
-			BookYear:   1843,
+			BookPages:  "280",
+			BookYear:   "1843",
 		},
 	}
 
@@ -161,7 +166,7 @@ func findAllBooks(coll *mongo.Collection) []map[string]interface{} {
 	var ret []map[string]interface{}
 	for _, res := range results {
 		ret = append(ret, map[string]interface{}{
-			"ID":         res.ID.Hex(),
+			"ID":         res.MongoID.Hex(),
 			"BookName":   res.BookName,
 			"BookAuthor": res.BookAuthor,
 			"BookISBN":   res.BookISBN,
@@ -181,7 +186,7 @@ func main() {
 	defer cancel()
 
 	// TODO: make sure to pass the proper username, password, and port
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://mongodb:testmongo@localhost:27017"))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
 
 	// This is another way to specify the call of a function. You can define inline
 	// functions (or anonymous functions, similar to the behavior in Python)
@@ -238,10 +243,22 @@ func main() {
 		return c.NoContent(http.StatusNoContent)
 	})
 
+	// You will have to expand on the allowed methods for the path
+	// `/api/route`, following the common standard.
+	// A very good documentation is found here:
+	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods
+	// It specifies the expected returned codes for each type of request
+	// method.
 	e.GET("/api/books", func(c echo.Context) error {
 		books := findAllBooks(coll)
 		return c.JSON(http.StatusOK, books)
 	})
 
+	// We start the server and bind it to port 3030. For future references, this
+	// is the application's port and not the external one. For this first exercise,
+	// they could be the same if you use a Cloud Provider. If you use ngrok or similar,
+	// they might differ.
+	// In the submission website for this exercise, you will have to provide the internet-reachable
+	// endpoint: http://<host>:<external-port>
 	e.Logger.Fatal(e.Start(":3030"))
 }
