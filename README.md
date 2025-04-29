@@ -29,6 +29,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
                 name: "The book name",
                 author: "The book author",
                 pages: 1000,
+                edition: "1st Edition",
                 year: 1900,
         },{...}]
 
@@ -38,6 +39,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
                 name: "The book name",
                 author: "The book author",
                 pages: 1000,
+                edition: "1st Edition",
                 year: 1900,
         }
 
@@ -47,6 +49,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
                 id: "asd34343",  // for updates, this field in the body is optional 
                 name: "The book name",
                 author: "The book author",
+                edition: "1st Edition",
                 pages: 1000,
                 year: 1900,
         }

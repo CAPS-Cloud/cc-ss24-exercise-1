@@ -22,13 +22,13 @@ import (
 // frontend or the database
 // More on these "tags" like `bson:"_id,omitempty"`: https://go.dev/wiki/Well-known-struct-tags
 type BookStore struct {
-	MongoID    primitive.ObjectID `bson:"_id,omitempty"`
-	ID         string
-	BookName   string
-	BookAuthor string
-	BookISBN   string
-	BookPages  string
-	BookYear   string
+	MongoID     primitive.ObjectID `bson:"_id,omitempty"`
+	ID          string
+	BookName    string
+	BookAuthor  string
+	BookEdition string
+	BookPages   string
+	BookYear    string
 }
 
 // Wraps the "Template" struct to associate a necessary method
@@ -95,28 +95,28 @@ func prepareDatabase(client *mongo.Client, dbName string, collecName string) (*m
 func prepareData(client *mongo.Client, coll *mongo.Collection) {
 	startData := []BookStore{
 		{
-			ID:         "example1",
-			BookName:   "The Vortex",
-			BookAuthor: "José Eustasio Rivera",
-			BookISBN:   "958-30-0804-4",
-			BookPages:  "292",
-			BookYear:   "1924",
+			ID:          "example1",
+			BookName:    "The Vortex",
+			BookAuthor:  "José Eustasio Rivera",
+			BookEdition: "958-30-0804-4",
+			BookPages:   "292",
+			BookYear:    "1924",
 		},
 		{
-			ID:         "example2",
-			BookName:   "Frankenstein",
-			BookAuthor: "Mary Shelley",
-			BookISBN:   "978-3-649-64609-9",
-			BookPages:  "280",
-			BookYear:   "1818",
+			ID:          "example2",
+			BookName:    "Frankenstein",
+			BookAuthor:  "Mary Shelley",
+			BookEdition: "978-3-649-64609-9",
+			BookPages:   "280",
+			BookYear:    "1818",
 		},
 		{
-			ID:         "example3",
-			BookName:   "The Black Cat",
-			BookAuthor: "Edgar Allan Poe",
-			BookISBN:   "978-3-99168-238-7",
-			BookPages:  "280",
-			BookYear:   "1843",
+			ID:          "example3",
+			BookName:    "The Black Cat",
+			BookAuthor:  "Edgar Allan Poe",
+			BookEdition: "978-3-99168-238-7",
+			BookPages:   "280",
+			BookYear:    "1843",
 		},
 	}
 
@@ -166,11 +166,11 @@ func findAllBooks(coll *mongo.Collection) []map[string]interface{} {
 	var ret []map[string]interface{}
 	for _, res := range results {
 		ret = append(ret, map[string]interface{}{
-			"ID":         res.MongoID.Hex(),
-			"BookName":   res.BookName,
-			"BookAuthor": res.BookAuthor,
-			"BookISBN":   res.BookISBN,
-			"BookPages":  res.BookPages,
+			"ID":          res.MongoID.Hex(),
+			"BookName":    res.BookName,
+			"BookAuthor":  res.BookAuthor,
+			"BookEdition": res.BookEdition,
+			"BookPages":   res.BookPages,
 		})
 	}
 
