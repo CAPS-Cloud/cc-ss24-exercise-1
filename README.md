@@ -44,7 +44,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
                 year: "1900",
         }
 
-    3.3 `UPDATE`. The request path should be `/api/books/:id`, and it should return the proper status code upon **correct** completion, where `:id` is the `id` given during the `GET` operation. The body of the request looks as follows:
+    3.3 `UPDATE`. The request path should be `/api/books/:id`, and it should return the proper status code upon **correct** completion, where `:id` is the `id` given during the `GET` operation, which is **not the MongoID**. The body of the request looks as follows:
 
         request.body = {
                 id: "asd34343",  // for updates, this field in the body is optional 
@@ -55,7 +55,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
                 year: "1900",
         }
 
-    3.4 `DELETE`. The request path should be `/api/books/:id`, and it should return the status code 200 upon **correct** deletion of the respective book. In this context, `:id` is known as a path parameter, and common HTTP server frameworks (like the one we are using), supports parsing such parameter to the point you can easily access it. The value for `:id` is the key `id` from previous responses.
+    3.4 `DELETE`. The request path should be `/api/books/:id`, and it should return the status code 200 upon **correct** deletion of the respective book. In this context, `:id` is known as a path parameter, and common HTTP server frameworks (like the one we are using), supports parsing such parameter to the point you can easily access it. The value for `:id` is the key `id` from previous responsesx, which is **not the MongoID**.
 
     3.5 We will make at least **6** different tests to these endpoints with random (but stable data) to make sure the workflow is correct. If everything is correct, together with the rendering functionality, you will achieve 90 points. Remember that you need **70 %** to pass each assignment.
 
