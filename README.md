@@ -28,19 +28,20 @@ As you have seen from the exercise slides or recording, we will be exploring dev
                 id: "asd34343",
                 name: "The book name",
                 author: "The book author",
-                pages: 1000,
+                pages: "1000",
                 edition: "1st Edition",
-                year: 1900,
+                year: "1900",
         },{...}]
 
     3.2. `POST`. The request path should be `/api/books`, and it should return the proper status code upon **correct** completion. The body of the request looks as follows: 
 
         request.body = {
-                name: "The book name",
+                 id: "asd34343",    // This is not the MongoID
+                 name: "The book name",
                 author: "The book author",
-                pages: 1000,
+                pages: "1000",
                 edition: "1st Edition",
-                year: 1900,
+                year: "1900",
         }
 
     3.3 `UPDATE`. The request path should be `/api/books/:id`, and it should return the proper status code upon **correct** completion, where `:id` is the `id` given during the `GET` operation. The body of the request looks as follows:
@@ -50,8 +51,8 @@ As you have seen from the exercise slides or recording, we will be exploring dev
                 name: "The book name",
                 author: "The book author",
                 edition: "1st Edition",
-                pages: 1000,
-                year: 1900,
+                pages: "1000",
+                year: "1900",
         }
 
     3.4 `DELETE`. The request path should be `/api/books/:id`, and it should return the status code 200 upon **correct** deletion of the respective book. In this context, `:id` is known as a path parameter, and common HTTP server frameworks (like the one we are using), supports parsing such parameter to the point you can easily access it. The value for `:id` is the key `id` from previous responses.
