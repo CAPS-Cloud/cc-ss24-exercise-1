@@ -25,7 +25,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
     3.1. `GET`. The request path should be `/api/books`, and it should return an array of objects, in the following form:
 
         response = [{
-                id: "asd34343",
+                id: "asd34343",    // This is not the MongoID
                 name: "The book name",
                 author: "The book author",
                 pages: "1000",
@@ -36,8 +36,8 @@ As you have seen from the exercise slides or recording, we will be exploring dev
     3.2. `POST`. The request path should be `/api/books`, and it should return the proper status code upon **correct** completion. The body of the request looks as follows: 
 
         request.body = {
-                 id: "asd34343",    // This is not the MongoID
-                 name: "The book name",
+                id: "asd34343",    // This is not the MongoID
+                name: "The book name",
                 author: "The book author",
                 pages: "1000",
                 edition: "1st Edition",
