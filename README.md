@@ -36,12 +36,12 @@ As you have seen from the exercise slides or recording, we will be exploring dev
     3.2. `POST`. The request path should be `/api/books`, and it should return the proper status code upon **correct** completion. The body of the request looks as follows: 
 
         request.body = {
-                id: "asd34343",    // This is not the MongoID
+                id: "asd34343",            // This is not the MongoID
                 title: "The book name",
                 author: "The book author",
-                pages: "1000",
-                edition: "1st Edition",
-                year: "1900",
+                pages: "1000",             // optional field
+                edition: "1st Edition",    // optional field
+                year: "1900",              // optional field
         }
 
     3.3 `UPDATE`. The request path should be `/api/books/:id`, and it should return the proper status code upon **correct** completion, where `:id` is the `id` given during the `GET` operation, which is **not the MongoID**. The body of the request looks as follows:
