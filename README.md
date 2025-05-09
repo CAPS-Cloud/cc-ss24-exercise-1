@@ -26,7 +26,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
 
         response = [{
                 id: "asd34343",    // This is not the MongoID
-                name: "The book name",
+                title: "The book title",
                 author: "The book author",
                 pages: "1000",
                 edition: "1st Edition",
@@ -37,7 +37,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
 
         request.body = {
                 id: "asd34343",    // This is not the MongoID
-                name: "The book name",
+                title: "The book name",
                 author: "The book author",
                 pages: "1000",
                 edition: "1st Edition",
@@ -48,7 +48,7 @@ As you have seen from the exercise slides or recording, we will be exploring dev
 
         request.body = {
                 id: "asd34343",  // for updates, this field in the body is optional 
-                name: "The book name",
+                title: "The book name",
                 author: "The book author",
                 edition: "1st Edition",
                 pages: "1000",
